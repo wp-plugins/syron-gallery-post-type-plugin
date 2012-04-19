@@ -1,7 +1,7 @@
 === SYRON Post-Type Gallery Plugin  ===
 
 Contributors: syron1988
-Tags: post,post-types
+Tags: post,post-types,gallery
 Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: 0.1a
