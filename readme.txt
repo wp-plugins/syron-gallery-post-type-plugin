@@ -9,6 +9,9 @@ This plugin will add the abbility to use a post-type as a gallery. Basically it 
 
 == Description ==
 
+= Official plugin page =
+http://syron.se/
+
 = What it does =
 After installing the plugin, a new page will be added to the settings on /wp-admin/. There you have the choice to which post-types you will add the plugin. It currently will even let you add the plugin to attachments (to your media library), but it will not work there!
 
