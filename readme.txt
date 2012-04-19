@@ -14,6 +14,15 @@ This plugin will add the ability to use post-types as galleries. Not only as gal
 Coming soon...
 
 
+== Installation ==
+
+You can either go into your /wp-admin/plugins.php, search for the plugin (SYRON Post-Type Gallery Plugin) and install it. Or you can just simply download it and install it by uploading it via /wp-admin/.
+
+== Screenshots ==
+
+1. The plugin settings, what post types should use this plugin. `/tags/0.1a/plugin_settings.png`
+2. `/tags/0.1a/plugin_post_show.png`
+
 == Code Example ==
 
 Place this inside your loop and everything should be going :)
