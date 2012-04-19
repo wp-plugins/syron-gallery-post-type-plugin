@@ -23,7 +23,7 @@ http://syron.se/
 
 = What it does =
 
-After installing the plugin, a new page will be added to the settings on '/wp-admin/'. There you have the choice to which post-types you will add the plugin. It currently will even let you add the plugin to attachments (to your media library), but it will not work there!
+After installing the plugin, a new page will be added to the settings on \'/wp-admin/\'. There you have the choice to which post-types you will add the plugin. It currently will even let you add the plugin to attachments (to your media library), but it will not work there!
 
  
 
