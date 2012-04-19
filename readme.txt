@@ -10,27 +10,16 @@ Adds the abbility to use a post-type as a gallery. Basically it adds the possibi
 
 == Description ==
 
-** Official Page **
+= Official Page =
 http://syron.se/
 
-** Usage Example Video **
+= Usage Example Video =
 http://syron.se/
 
-** What it does **
+= What it does =
 After installing the plugin, a new page will be added to the settings on /wp-admin/. There you have the choice to which post-types you will add the plugin. It currently will even let you add the plugin to attachments (to your media library), but it will not work there!
 
 After you have chosen the post-types, to which you will add the plugin, a new meta box will be visible when adding/editing a post where you can choose the images, which you want to use! 
-
-** How to use it **
-Add the following code to your template and adjust it for your needs.
-`<?php 
-  $syron_gallery_images = get_post_meta(get_the_ID(), 'syron_gallery_images', true); 
-  foreach ($syron_gallery_images as $image_id) {
-    $myimage = get_post($image_id);            
-    $att = wp_get_attachment_image($image_id, "thumbnail");
-    echo '<a class="sg_img" href="' . $myimage->guid . '" target="_blank" style="margin: 10px; padding: 5px;">' . $att . '</a>';
-  }          
-?>`
 
 == Installation ==
 1. Upload the plugin folder to the '/wp-content/plugins/' directory, 
