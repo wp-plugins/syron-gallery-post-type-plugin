@@ -1,6 +1,7 @@
 === SYRON Post Gallery Plugin ===
 Contributors: syron1988
-Tags: post, gallery, posttypes, simple
+Donate link:
+Tags: post, gallery, post-types, simple
 Requires at least: 3.0.0
 Tested up to: 3.3.1
 Stable tag: 0.1
@@ -24,17 +25,7 @@ After you have chosen the post-types, to which you will add the plugin, a new me
 1. Upload the plugin folder to the '/wp-content/plugins/' directory, 
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
-== Frequently Asked Questions ==
-
-None yet!
-
-== Changelog ==
-
-None yet!
-
-== Upgrade Notice ==
-
-None yet!
+You will then find SYRON Gallery under the Settings section, where you can choose your post-types to which you want to add the plugin.
 
 == How to implement it ==
 Add the following code to your template and adjust it for your needs.
