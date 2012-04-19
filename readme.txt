@@ -21,13 +21,7 @@ After installing the plugin, a new page will be added to the settings on /wp-adm
 
 After you have chosen the post-types, to which you will add the plugin, a new meta box will be visible when adding/editing a post where you can choose the images, which you want to use! 
 
-== Installation ==
-1. Upload the plugin folder to the '/wp-content/plugins/' directory, 
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-
-You will then find SYRON Gallery under the Settings section, where you can choose your post-types to which you want to add the plugin.
-
-== How to implement it ==
+** How to use it **
 Add the following code to your template and adjust it for your needs.
 `<?php 
   $syron_gallery_images = get_post_meta(get_the_ID(), 'syron_gallery_images', true); 
@@ -37,3 +31,9 @@ Add the following code to your template and adjust it for your needs.
     echo '<a class="sg_img" href="' . $myimage->guid . '" target="_blank" style="margin: 10px; padding: 5px;">' . $att . '</a>';
   }          
 ?>`
+
+== Installation ==
+1. Upload the plugin folder to the '/wp-content/plugins/' directory, 
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+
+You will then find SYRON Gallery under the Settings section, where you can choose your post-types to which you want to add the plugin.
