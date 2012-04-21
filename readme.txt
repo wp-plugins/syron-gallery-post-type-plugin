@@ -9,6 +9,14 @@ Adds the abbility to use a post-type as a gallery. Basically it adds the possibi
 
 == Description ==
 
+Remember! This is still alpha version!
+
+= Screenshots =
+http://syron.se/files/wordpress/plugins/syron_gallery/pics/image_categories.png
+http://syron.se/files/wordpress/plugins/syron_gallery/pics/media_albums.png
+http://syron.se/files/wordpress/plugins/syron_gallery/pics/plugin_settings.png
+http://syron.se/files/wordpress/plugins/syron_gallery/pics/post.png
+
 = Official Page =
 http://syron.se/
 
@@ -21,11 +29,6 @@ After installing the plugin, a new page will be added to the settings on 'wp-adm
 
 After you have chosen the post-types, to which you will add the plugin, a new meta box will be visible when adding/editing a post where you can choose the images, which you want to use! 
 
-== Screenshots ==
-1. `http://syron.se/files/wordpress/plugins/syron_gallery/pics/image_categories.png`
-2. `http://syron.se/files/wordpress/plugins/syron_gallery/pics/media_albums.png`
-3. `http://syron.se/files/wordpress/plugins/syron_gallery/pics/plugin_settings.png`
-4. `http://syron.se/files/wordpress/plugins/syron_gallery/pics/post.png`
 
 == Change Log ==
 
