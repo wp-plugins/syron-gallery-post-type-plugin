@@ -1,4 +1,7 @@
 /* META BOX */
+#syron_gallery_images_hidden_fields {
+  display: none;
+}
 #syron_gallery_images .syron_gallery_image {
   float: left;
   padding: 5px 5px 1px 5px;
@@ -58,6 +61,52 @@
   background-clip: padding-box;
   padding: 20px 20px 0px 20px;
   margin: 0;
+}
+.sg_media_category_form {
+  background: #fafafa;
+  border: 1px solid #d9d9d9;
+  -webkit-box-shadow: 0px 2px 3px #cccccc;
+  -moz-box-shadow: 0px 2px 3px #cccccc;
+  box-shadow: 0px 2px 3px #cccccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 20px 20px 0px 20px;
+  margin: 0;
+  padding: 20px;
+}
+.sg_media_category_form .cat {
+  width: 204px;
+  padding: 5px;
+  margin: 3px;
+  float: left;
+  text-align: right;
+  background-color: #e6e6e6;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.sg_media_category_form .cat input[type="text"] {
+  background-color: #e6e6e6;
+  border: none;
+}
+.sg_media_category_form .cat input[type="text"]:focus {
+  background-color: white;
+}
+.sg_media_category_form .cat:hover {
+  background-color: #d9d9d9;
 }
 /* OTHER CLASSES */
 .clearfix:before,

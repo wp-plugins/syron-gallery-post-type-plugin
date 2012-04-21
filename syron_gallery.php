@@ -3,74 +3,25 @@
 Plugin Name: Syron.se Post Gallery Plugin
 Plugin URI: http://syron.se/
 Description: Adds the ability to handle a post-type as a gallery!
-Version: 0.1a
+Version: 0.2a
 Author: Robert "syron" Mayer
 Author URI: http://syron.se/
 License: GPL2
 */
+include('syron_gallery_settings.php');
+include('syron_gallery_media_categories.php');
+include('syron_gallery_media_categories_page.php');
+include('syron_gallery_functions.php');
+
 function call_syron_gallery() 
 {
-    return new syron_gallery();
+  return new syron_gallery();
 }
 if (is_admin()) {
   add_action('admin_init', 'call_syron_gallery');
   add_action('admin_init', 'syron_gallery_register_settings');
   add_action('admin_menu', 'syron_gallery_option_submenu_page');
 }
-
-function syron_gallery_register_settings() {
-  register_setting( 'syron_gallery-group', 'sg_post_types' );
-}
-
-function syron_gallery_option_submenu_page() {
-	add_submenu_page( 'options-general.php', 'SYRON Gallery', 'SYRON Gallery', 'manage_options', 'syron-gallery-options', 'syron_gallery_option_page' ); 
-}
-
-function syron_gallery_option_page() {
-	
-	echo '<div class="wrap">';
-  echo '<h2>SYRON Gallery Plugin Options</h2>';
-  
-  echo '<div class="sg_information">';
-  echo 'Choose in which post types the plugin should work in!';
-  echo '</div>';
-  
-  echo '<form method="post" action="options.php">';
-  echo '<div class="sg_form">';
-  
-  settings_fields( 'syron_gallery-group' );
-  do_settings_fields( 'syron_gallery-group' );
-  
-  /*
-  echo '<input type="text" name="post_types" value="' . get_option('post_types') . '"/>';
-  */
-  $sg_post_types = get_option('sg_post_types');
-  $post_types = get_post_types(array("public"=>true));
-  foreach ($post_types as $post_type) {
-    if (in_array($post_type, $sg_post_types))
-      echo '<label><input name="sg_post_types[]" type="checkbox" value="' . $post_type . '" checked/>' . $post_type . '</label><br />';
-    else
-      echo '<label><input name="sg_post_types[]" type="checkbox" value="' . $post_type . '" />' . $post_type . '</label><br />';
-  }
-  
-  echo '<p class="submit">';
-  echo '<input type="submit" class="button-primary" value="Save Changes" />';
-  echo '</p>';
-  echo '</div>';
-  echo '</form>';
-  
-  echo '</div>';
-
-}
-
-
-
-
-
-
-
-
-
 
 class syron_gallery {
   private $PREFIX = "syron_gallery";
@@ -110,28 +61,47 @@ class syron_gallery {
     
     $myvar = get_post_meta($post->ID, "syron_gallery_images", true);
     $images = $this->get_media($myvar);
-    echo '<div id="syron_gallery_images">';
-    foreach ($images as $image) {
-      if ($image["selected"]) {
-        echo '<div class="syron_gallery_image selected">';
-        echo '<label>';
-        echo '<input type="checkbox" name="syron_gallery_images[]" value="' . $image["ID"] . '" checked>';  
-        echo wp_get_attachment_image($image["ID"], "thumbnail");
-        echo '</label>';
-        echo '</div>';
-      }
-      else {
-          echo '<div class="syron_gallery_image">';
-          echo '<label>';
-          echo '<input type="checkbox" name="syron_gallery_images[]" value="' . $image["ID"] . '">';  
-          //echo '<img src="' . $image["guid"] . '">';
-          echo wp_get_attachment_image($image["ID"], "thumbnail");
-          echo '</label>';
-          echo '</div>';
-      }
-    }
-    echo '<div class="clearfix"></div>';
-    echo '</div>';
+    ?>
+    <?php $this->get_media_categories(); ?>
+    
+    <div class="syron_gallery_categories">
+      Choose your album:
+      <select name="syron_gallery_media_category_select" id="syron_gallery_media_category_select" onchange="" size="1">
+        <option value="-1" selected>** ALL **</option>
+        <?php 
+          $terms = $this->get_media_categories(); 
+          foreach ($terms as $term): 
+        ?>
+        <option value="<?=$term->slug;?>"><?=$term->name;?></option> 
+        <?php 
+          endforeach; 
+        ?>  
+      </select>
+      and select your images!
+    </div>
+    
+    <div id="syron_gallery_image_thumbs">      
+      <?php foreach($images as $image): $selected = ""; $checked = ""; ?>
+        <?php if ($image["selected"]) { $selected = "selected"; $checked = 'checked="checked"'; } ?>
+        <div class="syron_gallery_image <?=$selected;?>">
+          <label>
+            <input type="checkbox" name="syron_gallery_images[]" value="<?=$image["ID"];?>" <?=$checked;?>>
+            <?=wp_get_attachment_image($image["ID"], "thumbnail");?>
+          </label>
+        </div>  
+      <?php endforeach; ?>
+      <div class="clearfix"></div>
+    </div>
+    
+    <div id="syron_gallery_images_hidden_fields">
+      <?php foreach($images as $image): $selected = ""; $checked = ""; ?>
+        <?php if ($image["selected"]) { $checked = 'checked="checked"'; } ?>
+        <input type="checkbox" name="syron_gallery_images_hidden[]" value="<?=$image["ID"];?>" <?=$checked;?>>
+      <?php endforeach; ?>
+    </div>
+  
+    <?php
+    // end of function
   }
   
   
@@ -139,9 +109,14 @@ class syron_gallery {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
           return;
     
-    update_post_meta($post_id, 'syron_gallery_images', $_POST['syron_gallery_images']);
+    update_post_meta($post_id, 'syron_gallery_images', $_POST['syron_gallery_images_hidden']);
   }
-
+  
+  private function get_media_categories() {
+    global $wpdb;
+    $terms = get_terms("media_category", array("hide_empty"=>0));
+    return $terms;
+  }
   /*
    *  Is getting all the media files where mime_type = image!
    *  Could be extended with videos!
@@ -159,7 +134,7 @@ class syron_gallery {
     $query_images = new WP_Query( $query_images_args );
     $images = array();
     foreach ( $query_images->posts as $image) {
-      if (in_array($image->ID, $selected))
+      if ($selected != null && in_array($image->ID, $selected))
         $images[] = array("ID" => $image->ID, "guid" => $image->guid, "selected" => 1);
       else
         $images[] = array("ID" => $image->ID, "guid" => $image->guid, "selected" => 0);
