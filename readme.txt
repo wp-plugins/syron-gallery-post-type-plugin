@@ -10,24 +10,22 @@ Adds the abbility to use a post-type as a gallery. Basically it adds the possibi
 == Description ==
 
 = Official Page =
-
 http://syron.se/
-
- 
 
 = Usage Example Video =
-
 http://syron.se/
-
- 
 
 = What it does =
 
 After installing the plugin, a new page will be added to the settings on \'/wp-admin/\'. There you have the choice to which post-types you will add the plugin. It currently will even let you add the plugin to attachments (to your media library), but it will not work there!
 
- 
-
 After you have chosen the post-types, to which you will add the plugin, a new meta box will be visible when adding/editing a post where you can choose the images, which you want to use! 
+
+== Change Log ==
+
+= 0.2a =
+- Added media categories
+- Added a select box when adding a post (it lets you search easier through all your media images)
 
 == Installation ==
 
