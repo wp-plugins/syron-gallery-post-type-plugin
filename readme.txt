@@ -17,9 +17,15 @@ http://syron.se/
 
 = What it does =
 
-After installing the plugin, a new page will be added to the settings on \'/wp-admin/\'. There you have the choice to which post-types you will add the plugin. It currently will even let you add the plugin to attachments (to your media library), but it will not work there!
+After installing the plugin, a new page will be added to the settings on 'wp-admin'. There you have the choice to which post-types you will add the plugin. It currently will even let you add the plugin to attachments (to your media library), but it will not work there!
 
 After you have chosen the post-types, to which you will add the plugin, a new meta box will be visible when adding/editing a post where you can choose the images, which you want to use! 
+
+== Screenshots ==
+1. `http://syron.se/files/wordpress/plugins/syron_gallery/pics/image_categories.png`
+2. `http://syron.se/files/wordpress/plugins/syron_gallery/pics/media_albums.png`
+3. `http://syron.se/files/wordpress/plugins/syron_gallery/pics/plugin_settings.png`
+4. `http://syron.se/files/wordpress/plugins/syron_gallery/pics/post.png`
 
 == Change Log ==
 
