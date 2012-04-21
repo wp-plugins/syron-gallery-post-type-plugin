@@ -1,0 +1,73 @@
+/* META BOX */
+#syron_gallery_images .syron_gallery_image {
+  float: left;
+  padding: 5px 5px 1px 5px;
+  margin: 5px;
+  border: 1px solid #cccccc;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  opacity: .5;
+  -webkit-box-shadow: 0px 1px 6px #666666;
+  -moz-box-shadow: 0px 1px 6px #666666;
+  box-shadow: 0px 1px 6px #666666;
+}
+#syron_gallery_images .syron_gallery_image img {
+  width: 100px;
+  height: 100px;
+}
+#syron_gallery_images .syron_gallery_image input[type="checkbox"] {
+  display: none;
+}
+#syron_gallery_images .syron_gallery_image.selected {
+  opacity: 1;
+}
+#syron_gallery_images .syron_gallery_image:hover {
+  opacity: 1;
+}
+/* OPTIONS PAGE */
+.sg_information {
+  background: #f2f2f2;
+  border: 1px solid #bfbfbf;
+  -webkit-box-shadow: 0px 2px 3px #b3b3b3;
+  -moz-box-shadow: 0px 2px 3px #b3b3b3;
+  box-shadow: 0px 2px 3px #b3b3b3;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 20px;
+}
+.sg_form {
+  background: #fafafa;
+  border: 1px solid #d9d9d9;
+  -webkit-box-shadow: 0px 2px 3px #cccccc;
+  -moz-box-shadow: 0px 2px 3px #cccccc;
+  box-shadow: 0px 2px 3px #cccccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 20px 20px 0px 20px;
+  margin: 0;
+}
+/* OTHER CLASSES */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
